@@ -1,0 +1,24 @@
+
+#https://blog.csdn.net/forezp/article/details/70148833
+
+#服务端口
+server:
+  port: 8761
+
+#eureka 注册服务
+eureka:
+  instance:
+    hostname: localhost
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false #eureka 自我保护模式
+
+spring:
+  application:
+    name: eurekaServer
